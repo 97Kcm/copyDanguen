@@ -1,0 +1,94 @@
+#full-header-section{
+    background-color: white;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#full-header-section > section{
+    width: var(--main-width);
+    margin: 0 auto;
+
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+#home-btn{
+    cursor: pointer;
+}
+
+#header-section{
+    display: flex;
+    justify-content: space-between;
+}
+
+#header-logo-box{
+    display: flex;
+}
+
+#header-menu-btn-section{
+    display: flex;
+}
+
+#header-menu-btn-section > a{
+    padding: 7px 10px;
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 3px;
+}
+
+#header-logo-box{
+    display: flex;
+    align-items: center;
+}
+
+#header-logo-box img{
+    width: 100px;
+    background-size: cover;
+    background-position: center;
+}
+
+#header-search-section{
+    display: flex;
+    align-items: center;
+}
+
+#header-input-section{
+    display: flex;
+    align-items: center;
+
+    width: 250px;
+    margin-right: 10px;
+    background-color: rgba(170,170,170,0.1);
+    border-radius: 7px;
+}
+
+#header-search-section input{
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    font-size: var(--font-size-midium);
+    background: none;
+}
+
+#header-search-section i{
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#header-search-section > a{
+    padding: 7px 10px;
+    border: 1px solid rgba(170,170,170,0.3);
+    border-radius: 7px;
+    background-color: white;
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 3px;
+}

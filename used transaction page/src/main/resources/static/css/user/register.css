@@ -1,0 +1,146 @@
+main{
+    margin: 150px auto;
+    width: 700px;
+    /*border: 1px solid black;*/
+}
+main > h1{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#register-input-section{
+    display: flex;
+    flex-direction: column;
+}
+
+#register-input-section span{
+    margin-right: 10px;
+}
+#register-input-section2 {
+    display: flex;
+    flex-direction: column;
+}
+i{
+    margin: 0 10px;
+}
+label{
+    margin: 10px 0;
+    align-items: center;
+    display: flex;
+    border: 1px solid rgba(170,170,170,0.8);
+    border-radius: 10px;
+    padding: 5px 2px;
+}
+select{
+    padding: 5px 10px;
+    outline: none;
+}
+
+form input{
+    padding: 10px;
+    outline: none;
+    border: none;
+}
+
+#address-input-section div{
+    margin: 10px 0;
+}
+
+
+#id-input-section input{
+    width: 100%;
+}
+#id-input-section select{
+    border: none;
+}
+
+
+#password-input-section input{
+    width: 100%;
+}
+#password-input-section2{
+    display: flex;
+    border: 1px solid rgba(170,170,170,0.8);
+    border-radius: 10px;
+    padding: 5px 2px;
+}
+
+#password-input-section2 input{
+    width: 100%;
+}
+#certification-btn-section{
+    border: none;
+}
+
+#certification-btn-section{
+    width: 100%;
+    display: flex;
+}
+
+#certification-btn-section button{
+    width: 100%;
+    margin: 0;
+}
+#certification-email-check-section{
+    width: 100%;
+    display: flex;
+}
+#certification-email-check-section input{
+    width: 100%;
+}
+#certification-email-check-section button{
+    margin: 0;
+    width: 100px;
+}
+
+
+#name-input-section input{
+    width: 100%;
+}
+
+
+#nickname-input-section i{
+    margin-right: 2px;
+}
+#nickname-input-section input{
+    width: 100%;
+}
+
+
+#address-input-section span{
+    width: 100px;
+    font-size: var(--font-size-small);
+    padding-left: 3px;
+}
+#address-input-section select{
+    width: 100%;
+    border: none;
+    font-size: var(--font-size-midium);
+}
+
+#button-section div{
+    display: flex;
+    justify-content: right;
+    border: none;
+}
+button{
+    padding: 8px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(170,170,170,0.8);
+    cursor: pointer;
+}
+
+
+.validation-check{
+    font-size: var(--font-size-small);
+    display: none;
+}
+
+.validation-check[active]{
+    display: block;
+}
+
+.show-btn{
+    cursor: pointer;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dangeun.mapper.BoardMapper">
+    <resultMap id="getBoardImage" type="BoardDTO" autoMapping="true">
+        <id property="no" column="no"/>
+        <association property="user" resultMap="com.dangeun.mapper.UserMapper.getUserProfile" />
+        <collection property="productImages" ofType="FileDTO" javaType="list">
+            <id property="no" column="imageNo"/>
+            <result property="data" column="image"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="getBoardUserInfo" type="UserDTO" autoMapping="true">
+        <id property="email" column="email"/>
+    </resultMap>
+
+    <select id="selectBoardNotice" resultMap="getBoardImage">
+        SELECT * FROM `write_board` WB
+            INNER JOIN `write_board_images` WBI
+            ON WB.no = WBI.board_no
+        WHERE WB.no = #{no}
+    </select>
+
+    <select id="selectBoard" resultType="BoardDTO" resultMap="getBoardImage">
+        SELECT
+            WB.no AS 'no',
+            WBI.no AS 'imageNo',
+            WB.*,WBI.*,U.*
+        FROM `write_board` WB
+            INNER JOIN `user` U
+            ON U.email = WB.id
+            INNER JOIN `write_board_images` WBI
+            ON WBI.`board_no` = WB.`no`
+        WHERE WB.`no` = #{no}
+    </select>
+
+    <select id="selectAllBoards" resultType="BoardDTO" resultMap="getBoardImage">
+        SELECT
+            WB.no AS 'no',
+            WBI.no AS 'imageNo',
+            WB.*, WBI.*
+        FROM `write_board` WB
+            INNER JOIN `write_board_images` WBI
+            ON WBI.board_no = WB.no
+    </select>
+
+    <select id="selectUser" resultType="UserDTO">
+        SELECT U.* FROM `user` U
+            INNER JOIN `write_board` WB
+            ON WB.id = U.email
+        WHERE WB.no = #{no}
+    </select>
+
+
+    <insert id="insertNoticeBoardData">
+        INSERT INTO `write_board`
+        VALUES
+        (NULL, #{id}, #{board.title}, #{board.address}, #{board.extraAddress}, #{board.price}, #{board.category}, #{board.content}, CURRENT_TIMESTAMP)
+
+    </insert>
+
+    <insert id="insertNoticeBoardImages">
+        <selectKey keyProperty="no" order="BEFORE" resultType="int">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO `write_board_images`
+        VALUES
+        <foreach collection="board.productImages" item="image" separator=",">
+            (NULL, #{no}, #{image.data})
+        </foreach>
+
+    </insert>
+</mapper>

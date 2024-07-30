@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>header</title>
+    <link rel="stylesheet" href="../../static/css/public/public.css" th:href="@{/css/public/public.css}">
+    <link rel="stylesheet" href="../../static/css/public/header.css" th:href="@{/css/public/header.css}">
+    <script src="https://kit.fontawesome.com/3d4b55021f.js" crossorigin="anonymous"></script>
+    <script src="../../static/js/layout/header.js" th:src="@{js/layout/header.js}" defer></script>
+</head>
+<body>
+    <header th:fragment="header">
+        <form id="full-header-section">
+            <input id="token" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            <section>
+                <section id="header-section">
+                    <div id="header-logo-box">
+                        <a href="/main">
+                            <img id="home-btn" src="https://api.linkareer.com/attachments/293847" alt="">
+                        </a>
+                        <div id="header-menu-btn-section">
+                            <a href="/chat">채팅창 가기</a>
+                            <a href="/write">게시글 작성</a>
+                        </div>
+                    </div>
+                    <div id="header-search-section">
+                        <div id="header-input-section">
+                            <input type="text" placeholder="물품이나 지역을 입력해보세요">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <a sec:authorize="!isAuthenticated()" href="/user/login">로그인하기</a>
+                        <a id="logout-btn" sec:authorize="isAuthenticated()" href="">로그아웃</a>
+                    </div>
+                </section>
+            </section>
+        </form>
+    </header>
+</body>
+</html>

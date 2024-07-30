@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link rel="stylesheet" href="../../static/css/user/register.css" th:href="@{/css/user/register.css}">
+    <link rel="stylesheet" href="../../static/css/public/public.css" th:href="@{/css/public/public.css}">
+    <script src="https://kit.fontawesome.com/3d4b55021f.js" crossorigin="anonymous"></script>
+    <script src="../../static/js/user/register.js" th:src="@{/js/user/register.js}" defer></script>
+</head>
+<body>
+    <main>
+        <h1>회원가입</h1>
+        <section id="register-section">
+            <form method="POST" enctype="multipart/form-data">
+                <input id="token" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                <section id="register-input-section">
+                    <label id="id-input-section">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="hidden" name="email" id="full-email">
+                        <input type="text" placeholder="이메일 입력" id="email-head">
+                        <span>@</span>
+                        <input type="text" id="email-tail">
+                        <select id="select-email">
+                            <option selected>직접입력</option>
+                            <option>naver.com</option>
+                            <option>google.com</option>
+                            <option>daum.net</option>
+                        </select>
+                    </label>
+                    <div class="validation-check email">
+                        이메일을 입력해주세요
+                    </div>
+                    <label id="certification-btn-section">
+                        <button type="button">인증 보내기</button>
+                    </label>
+                    <label id="certification-email-check-section">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="uuid" name="uuid" placeholder="인증번호 입력">
+                        <i class="fa-solid fa-eye show-btn"></i>
+                        <button type="button" id="cert-check-btn">확인하기</button>
+                    </label>
+                    <div class="validation-check cert">
+                        잘못된 인증 번호입니다.
+                    </div>
+                    <label id="password-input-section">
+                        <i class="fa-solid fa-lock"></i>
+                        <input class="pw-input" name="password" type="password" placeholder="비밀번호 입력(숫자, 영문 및 특수문자 1개이상 반드시 포함)">
+                        <i class="fa-solid fa-eye show-btn"></i>
+                    </label>
+                    <div class="validation-check pw1">
+                        올바른 비밀번호를 입력해 주세요
+                    </div>
+                    <label id="password-input-section2">
+                        <i class="fa-solid fa-lock"></i>
+                        <input class="pw-input" type="password" placeholder="비밀번호 재입력">
+                        <i class="fa-solid fa-eye show-btn"></i>
+                    </label>
+                    <div class="validation-check pw2">
+                        올바르지 않은 비밀번호 입니다
+                    </div>
+                </section>
+                <section id="register-input-section2">
+                    <label id="name-input-section">
+                        <i class="fa-solid fa-user"></i>
+                        <input id="name-input" name="name" type="text" placeholder="이름">
+                    </label>
+                    <div class="validation-check name">
+                        이름을 입력해주세요
+                    </div>
+                    <label id="nickname-input-section">
+                        <i class="fa-solid fa-signature"></i>
+                        <input id="nickname-input" name="nickname" type="text" placeholder="닉네임">
+                    </label>
+                    <div class="validation-check nickname">
+                        닉네임을 입력해주세요
+                    </div>
+                    <label id="address-input-section">
+                        <input id="address-input" type="hidden" name="address">
+                        <span>주소 선택</span>
+                        <select id="address-select">
+                            <option disabled selected>지역을 선택하세요</option>
+                            <option>서울특별시</option>
+                            <option>부산광역시</option>
+                            <option>대구광역시</option>
+                            <option>인천광역시</option>
+                            <option>광주광역시</option>
+                            <option>대전광역시</option>
+                            <option>울산광역시</option>
+                            <option>세종특별자치도</option>
+                            <option>경기도</option>
+                            <option>강원특별자치도</option>
+                            <option>충청북도</option>
+                            <option>충청남도</option>
+                            <option>전라북도</option>
+                            <option>전라남도</option>
+                            <option>경상북도</option>
+                            <option>경상남도</option>
+                            <option>제주특별자치도</option>
+                        </select>
+                    </label>
+                    <div class="validation-check address">
+                        주소를 선택해 주세요
+                    </div>
+                    <label>
+                        프로필 <input id="profileImage" type="file" name="profileImage.file">
+                    </label>
+                </section>
+                <section id="button-section">
+                    <div>
+                        <button id="register-btn">회원가입</button>
+                        <button id="cancel-btn" type="button">취소</button>
+                    </div>
+                </section>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

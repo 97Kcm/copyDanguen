@@ -1,0 +1,208 @@
+main{
+    width: 700px;
+    margin: 180px auto;
+}
+main > h1{
+    text-align: center;
+    margin-bottom: 100px;
+}
+main > section{
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(170,170,170,0.3);
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+input{
+    border-radius: 10px;
+    border: 1px solid rgba(170,170,170,0.8);
+    outline: none;
+    font-size: var(--font-size-midium);
+    padding: 10px 5px;
+}
+#form-section{
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#name-section{
+    display: flex;
+    margin-bottom: 20px;
+}
+#name-section span{
+    font-size: var(--font-size-Xlarge);
+    margin-right: 10px;
+}
+#name-section input{
+    flex: 1;
+}
+#address-section{
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+#address-section span{
+    font-size: var(--font-size-Xlarge);
+    margin-right: 10px;
+}
+#address-section select{
+    border-radius: 10px;
+    border: 1px solid rgba(170,170,170,0.8);
+    outline: none;
+    font-size: var(--font-size-Xlarge);
+    padding: 7px 5px;
+    margin-right: 10px;
+}
+#address-section input{
+    flex: 1;
+    padding: 10px 5px;
+}
+
+#name-section input{
+    width: 400px;
+}
+#price-section{
+    display: flex;
+    justify-content: space-between;
+}
+#price-section select{
+    width: 120px;
+    border-radius: 10px;
+    border: 1px solid rgba(170,170,170,0.8);
+    outline: none;
+    font-size: var(--font-size-Xlarge);
+}
+#price-section{
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+#price-section span{
+    font-size: var(--font-size-Xlarge);
+    margin-right: 15px;
+}
+#price-section input{
+    flex: 1;
+    margin-right: 10px;
+}
+#price-section select{
+    border-radius: 10px;
+    border: 1px solid rgba(170,170,170,0.8);
+    outline: none;
+    padding: 7px 5px;
+    font-size: var(--font-size-Xlarge);
+}
+#textarea-section div{
+    display: flex;
+}
+
+#textarea-section span{
+    margin-right: 15px;
+    font-size: var(--font-size-Xlarge);
+}
+
+#textarea-section textarea{
+    width: 603px;
+    height: 500px;
+    border-radius: 10px;
+    border: 1px solid rgba(170,170,170,0.8);
+    outline: none;
+    padding: 15px;
+    font-size: var(--font-size-midium);
+}
+#file-section input{
+    margin-left: 50px;
+    margin-top: 10px;
+    border: none;
+}
+
+#button-section{
+    display: flex;
+    justify-content: right;
+}
+#button-section button{
+    padding: 6px 10px;
+    border-radius: 7px;
+    border: 1px solid rgba(170,170,170,0.8);
+    cursor: pointer;
+}
+#button-section button:first-child{
+    margin-right: 15px;
+}
+
+#button-section button:hover{
+    background-color: rgba(170,170,170,0.8);
+    opacity: 0.8;
+}
+
+/************************************************/
+#extra-product-section{
+    margin: 50px 0;
+}
+
+#extra-product-section > div:first-child{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#extra-product-section > div:first-child a {
+    color: coral;
+}
+
+/********************************************************/
+
+#extra-product-grid-section{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
+
+.product-section{
+    border-radius: 7px;
+    cursor: pointer;
+}
+.product-image{
+    width: 100%;
+    height: 250px;
+}
+
+.product-image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 13px;
+}
+
+.product-info{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.product-info div:first-child{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info > div:first-child span{
+    padding: 3px 0;
+}
+
+.product-info > div:first-child span:nth-child(2){
+    font-weight: bold;
+    font-size: var(--font-size-midium);
+}
+.product-info > div:first-child span:last-child{
+    font-size: var(--font-size-small);
+}
+
+.product-info > div:nth-child(2){
+    padding: 3px 0;
+}
+
+.product-info > div:nth-child(2) span{
+    font-size: var(--font-size-small);
+    color: rgba(0.7,0.7,0.7,0.5);
+}

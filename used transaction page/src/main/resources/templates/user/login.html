@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="../../static/css/public/public.css" th:href="@{/css/public/public.css}">
+    <link rel="stylesheet" href="../../static/css/user/login.css" th:href="@{/css/user/login.css}">
+    <script src="https://kit.fontawesome.com/3d4b55021f.js" crossorigin="anonymous"></script>
+    <script src="../../static/js/user/login.js" th:src="@{/js/user/login.js}" defer></script>
+</head>
+<body>
+    <main>
+        <h1>로그인</h1>
+        <section>
+            <ul id="login-btn-section">
+                <li class="login-btn">
+                    <button type="button" id="main-login-btn">당근 로그인</button>
+                </li>
+                <li class="login-btn">
+                    <a href="">카카오 로그인</a>
+                </li>
+                <li class="login-btn">
+                    <a href="">구글 로그인</a>
+                </li>
+                <li class="login-btn">
+                    <a href="">네이버 로그인</a>
+                </li>
+            </ul>
+            <div id="search-section">
+                <a href="">아이디 찾기</a>
+                <span>·</span>
+                <a href="">비밀번호 변경</a>
+                <span>·</span>
+                <a href="/user/register">회원가입</a>
+            </div>
+        </section>
+    </main>
+    <section id="dangeun-login-modal">
+        <form method="POST">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            <div id="id-input-section">
+                <span>아이디</span>
+                <input name="id" type="text">
+            </div>
+            <div id="password-input-section">
+                <span>비밀번호</span>
+                <input id="password-input" name="password" type="password">
+                <i class="fa-solid fa-eye show-btn"></i>
+            </div>
+            <div>
+                <button>로그인</button>
+                <button id="cancel-btn" type="button">취소</button>
+
+            </div>
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dangeun.mapper.UserMapper">
+
+    <resultMap id="getUserProfile" type="UserDTO" autoMapping="true">
+        <id property="email" column="email"/>
+        <association javaType="FileDTO" property="profileImage">
+            <id property="data" column="profileImage"/>
+        </association>
+    </resultMap>
+
+    <select id="SelectUserById" resultType="com.dangeun.dto.UserDTO">
+        SELECT * FROM `user` WHERE email = #{id}
+    </select>
+
+    <insert id="insertUser">
+        INSERT INTO `user`
+        VALUES
+        (#{email}, #{password}, #{name}, #{nickname}, #{address}, #{profileImage.data})
+    </insert>
+</mapper>

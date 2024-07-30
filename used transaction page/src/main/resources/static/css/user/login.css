@@ -1,0 +1,133 @@
+
+main{
+    width: 700px;
+    margin: 150px auto;
+}
+li{
+    list-style: none;
+}
+
+main > h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+#login-btn-section{
+    display: inline-flex;
+    flex-direction: column;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login-btn{
+    display: flex;
+    width: 400px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid rgba(170,170,170,0.8);
+    border-radius: 13px;
+    justify-content: center;
+    cursor: pointer;
+}
+.login-btn button{
+    border: none;
+    background-color: white;
+    font-size: var(--font-size-midium);
+    cursor: pointer;
+}
+.login-btn a{
+    text-decoration: none;
+    color: black;
+    font-size: var(--font-size-midium);
+
+}
+
+#search-section{
+    margin-top: 40px;
+}
+#search-section span{
+    font-size: var(--font-size-small);
+    color: rgba(170,170,170,0.8);
+}
+#search-section a{
+    text-decoration: none;
+    color: black;
+    font-size: var(--font-size-small);
+    color: rgba(170,170,170,0.8);
+    cursor: pointer;
+}
+
+
+#dangeun-login-modal{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.2);
+}
+
+#dangeun-login-modal form{
+    background-color: white;
+    width: 400px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#dangeun-login-modal div{
+    margin: 15px 0;
+}
+
+#dangeun-login-modal div:first-child span{
+    margin-right: 17px;
+}
+
+#dangeun-login-modal input{
+    padding: 5px 2px;
+    outline: none;
+}
+
+#dangeun-login-modal button{
+    padding: 5px 10px;
+    border: 1px solid rgba(170,170,170,0.8);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#dangeun-login-modal[active]{
+    display: flex;
+}
+
+#password-input-section input{
+    margin: 0 10px;
+}
+#password-input-section{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+#id-input-section{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+#id-input-section input{
+    margin-right: 10px;
+}
+#id-input-section span{
+    margin-right: 10px;
+}
+#password-input-section i{
+    cursor: pointer;
+}
