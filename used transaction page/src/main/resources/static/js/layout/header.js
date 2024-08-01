@@ -8,3 +8,14 @@ if(logoutBtn !== null) {
         form.submit();
     };
 }
+
+/****************** 검색 기능 ************************/
+const headerSearchInput = document.getElementById('header-search-input');
+const headerSearchBtn = document.getElementById('header-search-btn');
+
+
+headerSearchBtn.onclick = () => {
+    const searchTitle = headerSearchInput.value;
+    location.href = `/main?searchTitle=${searchTitle}&searchAddress=${searchTitle}`;
+}
+

@@ -14,8 +14,7 @@
 </head>
 <body>
     <header th:fragment="header">
-        <form id="full-header-section">
-            <input id="token" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <section id="full-header-section">
             <section>
                 <section id="header-section">
                     <div id="header-logo-box">
@@ -29,15 +28,15 @@
                     </div>
                     <div id="header-search-section">
                         <div id="header-input-section">
-                            <input type="text" placeholder="물품이나 지역을 입력해보세요">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input id="header-search-input" type="text" placeholder="물품이나 지역을 입력해보세요">
+                            <i id="header-search-btn" class="fa-solid fa-magnifying-glass"></i>
                         </div>
                         <a sec:authorize="!isAuthenticated()" href="/user/login">로그인하기</a>
                         <a id="logout-btn" sec:authorize="isAuthenticated()" href="">로그아웃</a>
                     </div>
                 </section>
             </section>
-        </form>
+        </section>
     </header>
 </body>
 </html>

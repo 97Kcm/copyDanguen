@@ -14,4 +14,23 @@
             INNER JOIN `write_board_images` WBI
             ON WB.no = WBI.board_no
     </select>
+
+    <select id="selectSearchBoard" resultType="BoardDTO" resultMap="getBoardImage">
+        SELECT * FROM `write_board` WB
+            INNER JOIN `write_board_images` WBI
+            ON WB.no = WBI.board_no
+        <where>
+            <if test="searchTitle != ''">
+                WB.title LIKE CONCAT('%', #{searchTitle}, '%')
+            </if>
+            <if test="searchAddress != ''">
+                AND CONCAT(WB.extra_address, WB.address) LIKE CONCAT('%', #{searchAddress}, '%')
+            </if>
+            <if test="searchCategory != ''">
+                AND WB.category LIKE CONCAT('%', #{searchCategory}, '%')
+            </if>
+        </where>
+
+
+    </select>
 </mapper>

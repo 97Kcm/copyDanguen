@@ -9,7 +9,9 @@
     <title>chat</title>
     <link rel="stylesheet" href="../static/css/chat.css" th:href="@{/css/chat.css}">
     <link rel="stylesheet" href="../static/css/public/public.css" th:href="@{/css/public/public.css}">
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js"></script>
     <script src="https://kit.fontawesome.com/3d4b55021f.js" crossorigin="anonymous"></script>
+    <script src="../static/js/chat.js" th:src="@{/js/chat.js}" defer></script>
 </head>
 <body>
 
@@ -260,7 +262,7 @@
             </section>
             <section id="chat-input-section">
                 <div>
-                    <input type="text">
+                    <input id="message" type="text">
                     <button>보내기</button>
                 </div>
             </section>

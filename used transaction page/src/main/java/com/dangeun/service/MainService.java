@@ -16,4 +16,8 @@ public class MainService {
         return mainMapper.SelectAllBoard();
     }
 
+    public List<BoardDTO> searchBoard(String searchTitle, String searchAddress, String searchCategory){
+        return mainMapper.selectSearchBoard(searchTitle, searchAddress, searchCategory);
+    }
+
 }

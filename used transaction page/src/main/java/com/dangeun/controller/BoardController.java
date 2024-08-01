@@ -44,6 +44,10 @@ public class BoardController {
         return "/board";
     }
 
+    @PostMapping("/board")
+    public void post_board(){}
+
+
     @GetMapping("/write")
     public void get_write(
             Model model
@@ -71,4 +75,6 @@ public class BoardController {
                 .mapToObj(boards::get)
                 .collect(Collectors.toList());
     }
+
+
 }

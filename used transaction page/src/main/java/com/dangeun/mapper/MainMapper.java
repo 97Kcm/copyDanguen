@@ -11,5 +11,7 @@ public interface MainMapper {
 
     List<BoardDTO> SelectAllBoard();
 
+    List<BoardDTO> selectSearchBoard(String searchTitle,String searchAddress,String searchCategory);
+
 
 }
