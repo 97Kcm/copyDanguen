@@ -1,9 +1,11 @@
 package com.dangeun.controller;
 
 import com.dangeun.dto.BoardDTO;
+import com.dangeun.dto.ChatDTO;
 import com.dangeun.dto.FileDTO;
 import com.dangeun.dto.UserDTO;
 import com.dangeun.service.BoardService;
+import com.dangeun.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,6 +25,9 @@ import java.util.stream.Collectors;
 public class BoardController {
     @Autowired
     private BoardService boardService;
+
+    @Autowired
+    private ChatService chatService;
 
     @GetMapping("/board/{no}")
     public String get_board(
@@ -45,7 +50,29 @@ public class BoardController {
     }
 
     @PostMapping("/board")
-    public void post_board(){}
+    public String post_board(
+            @AuthenticationPrincipal UserDTO userDTO,
+            ChatDTO chatDTO
+    ){
+        List<ChatDTO> chatAllRoomInfo = chatService.selectAllChatRoom(userDTO);
+        boolean result = true;
+        for(ChatDTO chat : chatAllRoomInfo){
+            if(chatDTO.getBoardNo() == chat.getBoardNo()){
+                result = false;
+            }
+        }
+        if(!chatDTO.getMyId().equals(chatDTO.getChatUserId())){
+            if(result){
+                chatService.insertInfoByChatRoom(chatDTO);
+                return "redirect:/chat?boardNo=" + chatDTO.getBoardNo();
+            }
+            else{
+                return "redirect:/chat?boardNo=" + chatDTO.getBoardNo();
+            }
+        }
+
+        return "redirect:/board/"+chatDTO.getBoardNo();
+    }
 
 
     @GetMapping("/write")

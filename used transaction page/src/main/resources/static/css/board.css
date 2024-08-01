@@ -33,11 +33,11 @@ main > section:first-child{
 #profile-section > section:first-child{
     display: flex;
 }
-#profile-section > section:last-child{
+#profile-section > form{
     display: flex;
     align-items: center;
 }
-#profile-section > section:last-child button{
+#profile-section > form button{
     border: 1px solid rgba(170,170,170,0.9);
     background-color: white;
     padding: 7px 5px;

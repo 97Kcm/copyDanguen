@@ -35,6 +35,8 @@ public class SecurityConfig {
         http.authorizeHttpRequests(registry -> {
             registry.requestMatchers("/write")
                     .authenticated()
+                    .requestMatchers("/chat")
+                    .authenticated()
                     .requestMatchers("/chat/*")
                     .authenticated()
                     .anyRequest().permitAll();

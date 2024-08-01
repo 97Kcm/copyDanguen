@@ -18,206 +18,28 @@
     <main layout:fragment="chat">
         <section id="user-icon-section">
             <button>
-                <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
+                <img th:src="${#authentication.principal.getProfileImage.getFileUrl}" alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
             </button>
         </section>
         <section id="short-chat-section">
             <section id="nickname-section">
-                <b>닉네임</b>
+                <b th:text="${#authentication.principal.getNickname}">닉네임</b>
             </section>
             <section>
                 <ul id="short-chat-box" class="scroll">
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
+                    <li th:each="chatInfo : ${chatInfos}">
+<!--                        <a th:href="|@{/chat?BoardNo=${chatInfo.getBoardNo()}|}">-->
                             <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
+                                <img th:src="${chatInfo.getUserDTO().getProfileImage().getFileUrl()}" alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
                             </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
                             <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
+                                <div>
+                                    <b th:text="${chatInfo.getChatUserId()}">닉네임</b>
+                                    <span>시간</span>
+                                </div>
+                                <span>채팅내용 아무거나</span>
                             </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
-                        </div>
-                        <div>
-                            <div>
-                                <b>닉네임</b>
-                                <span>시간</span>
-                            </div>
-                            <span>채팅내용 아무거나</span>
-                        </div>
+<!--                        </a>-->
                     </li>
 
                 </ul>
@@ -231,7 +53,7 @@
                 </section>
             </section>
         </section>
-        <section id="chat-section">
+        <section id="chat-section" th:if="${}">
             <section id="chat-nickname-section">
                 <div>
                     <div>

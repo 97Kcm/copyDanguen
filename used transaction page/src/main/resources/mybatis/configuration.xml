@@ -12,6 +12,7 @@
         <typeAlias type="com.dangeun.dto.BoardDTO" alias="BoardDTO" />
         <typeAlias type="com.dangeun.dto.FileDTO" alias="FileDTO" />
         <typeAlias type="com.dangeun.dto.UserDTO" alias="UserDTO" />
+        <typeAlias type="com.dangeun.dto.ChatDTO" alias="ChatDTO"/>
 
 
     </typeAliases>

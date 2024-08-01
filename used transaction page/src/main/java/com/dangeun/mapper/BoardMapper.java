@@ -1,6 +1,7 @@
 package com.dangeun.mapper;
 
 import com.dangeun.dto.BoardDTO;
+import com.dangeun.dto.ChatDTO;
 import com.dangeun.dto.UserDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -20,5 +21,7 @@ public interface BoardMapper {
     );
 
     void insertNoticeBoardImages(@Param("board") BoardDTO boardDTO);
+
+
 
 }

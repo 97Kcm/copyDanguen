@@ -10,7 +10,7 @@
         </association>
     </resultMap>
 
-    <select id="SelectUserById" resultType="com.dangeun.dto.UserDTO">
+    <select id="SelectUserById" resultType="com.dangeun.dto.UserDTO" resultMap="getUserProfile">
         SELECT * FROM `user` WHERE email = #{id}
     </select>
 

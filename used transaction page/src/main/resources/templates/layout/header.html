@@ -26,14 +26,15 @@
                             <a href="/write">게시글 작성</a>
                         </div>
                     </div>
-                    <div id="header-search-section">
+                    <form method="POST" action="/user/logout" id="header-search-section">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
                         <div id="header-input-section">
                             <input id="header-search-input" type="text" placeholder="물품이나 지역을 입력해보세요">
                             <i id="header-search-btn" class="fa-solid fa-magnifying-glass"></i>
                         </div>
                         <a sec:authorize="!isAuthenticated()" href="/user/login">로그인하기</a>
-                        <a id="logout-btn" sec:authorize="isAuthenticated()" href="">로그아웃</a>
-                    </div>
+                        <button id="logout-btn" sec:authorize="isAuthenticated()">로그아웃</button>
+                    </form>
                 </section>
             </section>
         </section>
