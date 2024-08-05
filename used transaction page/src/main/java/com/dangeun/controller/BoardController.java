@@ -57,7 +57,7 @@ public class BoardController {
         List<ChatDTO> chatAllRoomInfo = chatService.selectAllChatRoom(userDTO);
         boolean result = true;
         for(ChatDTO chat : chatAllRoomInfo){
-            if(chatDTO.getBoardNo() == chat.getBoardNo()){
+            if(chatDTO.getBoardNo().equals(chat.getBoardNo()) || chatDTO.getChatUserId().equals(chat.getChatUserId())){
                 result = false;
             }
         }

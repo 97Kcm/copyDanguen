@@ -1,6 +1,7 @@
 package com.dangeun.mapper;
 
 import com.dangeun.dto.ChatDTO;
+import com.dangeun.dto.ChatTextDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -12,9 +13,13 @@ public interface ChatMapper {
 
     ChatDTO selectChatRoom(Integer boardNo);
 
+    List<ChatTextDTO> selectChatText(Integer boardNo);
+
     void insertInfoByChatRoom(
             ChatDTO chatDTO
     );
+
+    void insertChatTextData(ChatTextDTO chatTextDTO);
 
 
 }

@@ -1,6 +1,7 @@
 package com.dangeun.service;
 
 import com.dangeun.dto.ChatDTO;
+import com.dangeun.dto.ChatTextDTO;
 import com.dangeun.dto.UserDTO;
 import com.dangeun.mapper.ChatMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,13 @@ public class ChatService {
 
     public void insertInfoByChatRoom(ChatDTO chatDTO){
         chatMapper.insertInfoByChatRoom(chatDTO);
+    }
+
+    public void createChatText(ChatTextDTO chatTextDTO){
+        chatMapper.insertChatTextData(chatTextDTO);
+    }
+
+    public List<ChatTextDTO> getChatList(Integer boardNo){
+        return chatMapper.selectChatText(boardNo);
     }
 }

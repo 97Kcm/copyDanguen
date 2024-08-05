@@ -4,9 +4,16 @@
 <mapper namespace="com.dangeun.mapper.ChatMapper">
 
     <resultMap id="getUserProfile" type="ChatDTO" autoMapping="true">
-        <id property="boardNo" column="boardNo"/>
+        <id property="boardNo" column="board_no"/>
         <association javaType="UserDTO" property="userDTO" autoMapping="true" resultMap="com.dangeun.mapper.UserMapper.getUserProfile">
             <id property="email" column="email"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="getChatTextData" type="ChatTextDTO" autoMapping="true">
+        <id property="no" column="no"/>
+        <association javaType="ChatDTO" property="chatDTO" autoMapping="true">
+            <id property="board_no" column="boardNo"/>
         </association>
     </resultMap>
 
@@ -15,18 +22,33 @@
         SELECT * FROM `chat_room` CR
             INNER JOIN `user` U
             ON CR.chat_user_id = U.email
-        WHERE my_id = #{myId}
+        WHERE my_id = #{myId} OR chat_user_id = #{myId}
     </select>
 
-    <select id="selectChatRoom" resultType="ChatDTO">
-        SELECT * FROM `chat_room`
+    <select id="selectChatRoom" resultType="ChatDTO" resultMap="getUserProfile">
+        SELECT * FROM `chat_room` CR
+            INNER JOIN `user` U
+            ON U.email = CR.chat_user_id
         WHERE board_no = #{boardNo}
+    </select>
+
+    <select id="selectChatText" resultType="ChatTextDTO" resultMap="getChatTextData">
+        SELECT * FROM `chat_text` CT
+            INNER JOIN `chat_room` CR
+            ON CR.board_no = CT.board_no
+        WHERE CT.board_no = #{boardNo}
     </select>
 
     <insert id="insertInfoByChatRoom">
         INSERT INTO `chat_room`
         VALUES
         (NULL, #{boardNo}, #{myId}, #{chatUserId})
+    </insert>
+
+    <insert id="insertChatTextData">
+        INSERT INTO `chat_text`
+        VALUES
+        (NULL, #{boardNo}, #{id}, #{nickname}, #{message}, #{nowDate})
     </insert>
 
 
