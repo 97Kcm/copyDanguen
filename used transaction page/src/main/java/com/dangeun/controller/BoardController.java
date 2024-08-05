@@ -46,7 +46,7 @@ public class BoardController {
         model.addAttribute("boards", boards);
         model.addAttribute("randomBoards", randomBoards);
 
-        return "/board";
+        return "board";
     }
 
     @PostMapping("/board")

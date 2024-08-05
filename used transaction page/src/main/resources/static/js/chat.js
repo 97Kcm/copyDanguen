@@ -17,13 +17,13 @@ const client = new StompJs.Client({
         console.log('connected...');
         console.log(boardNo.value);
 
-        client.subscribe('/topic/' + boardNo.value + "/list", message => {
-            try{
-                loadChat(message)
-            }catch (error){
-                console.error('Error parsing message body:', error);
-            }
-        });
+        // client.subscribe('/topic/' + boardNo.value + "/list", message => {
+        //     try{
+        //         loadChat(message)
+        //     }catch (error){
+        //         console.error('Error parsing message body:', error);
+        //     }
+        // });
 
 
         client.subscribe('/topic/' + boardNo.value, message => {

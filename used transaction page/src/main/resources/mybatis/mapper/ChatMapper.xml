@@ -12,9 +12,9 @@
 
     <resultMap id="getChatTextData" type="ChatTextDTO" autoMapping="true">
         <id property="no" column="no"/>
-        <association javaType="ChatDTO" property="chatDTO" autoMapping="true">
-            <id property="board_no" column="boardNo"/>
-        </association>
+<!--        <association javaType="ChatDTO" property="chatDTO" autoMapping="true">-->
+<!--            <id property="boardNo" column="board_no"/>-->
+<!--        </association>-->
     </resultMap>
 
 
@@ -32,7 +32,7 @@
         WHERE board_no = #{boardNo}
     </select>
 
-    <select id="selectChatText" resultType="ChatTextDTO" resultMap="getChatTextData">
+    <select id="selectChatText" resultType="ChatTextDTO" >
         SELECT * FROM `chat_text` CT
             INNER JOIN `chat_room` CR
             ON CR.board_no = CT.board_no

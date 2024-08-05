@@ -43,17 +43,17 @@ public class ChatController {
         ChatDTO chatRoom = chatService.selectChatRoom(boardNo);
         List<ChatDTO> chatInfos = chatService.selectAllChatRoom(userDTO);
         System.out.println("chatInfos" + chatInfos);
-        List<ChatTextDTO> chatList = chatService.getChatList(boardNo);
-        System.out.println("chatList" + chatList);
-        if(!chatList.isEmpty()){
-            model.addAttribute("chatList", chatList);
-        }
+//        List<ChatTextDTO> chatList = chatService.getChatList(boardNo);
+//        System.out.println("chatList" + chatList);
+//        if(!chatList.isEmpty()){
+//            model.addAttribute("chatList", chatList);
+//        }
         System.out.println("chatRoom : " + chatRoom);
 
         model.addAttribute("chatRoom", chatRoom);
         model.addAttribute("nowBoardNo", boardNo);
         model.addAttribute("chatInfos", chatInfos);
-        return "/chat";
+        return "chat";
     }
 
 //    @SendTo("/topic/{boardNo}")
@@ -80,7 +80,7 @@ public class ChatController {
                         build());
         List<ChatTextDTO> chatList = chatService.getChatList(boardNo);
 
-        messagingTemplate.convertAndSend("/topic/" + boardNo + "/list", chatList);
+//        messagingTemplate.convertAndSend("/topic/" + boardNo + "/list", chatList);
 
         messagingTemplate.convertAndSend("/topic/" + boardNo, chatTextDTO.builder().
                 boardNo(boardNo).
