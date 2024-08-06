@@ -16,6 +16,5 @@ public class ChatTextDTO {
     private String nickname;
     private String message;
     private String nowDate;
-    private ChatDTO chatDTO;
 
 }

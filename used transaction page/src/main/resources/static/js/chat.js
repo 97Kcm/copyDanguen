@@ -42,7 +42,7 @@ const client = new StompJs.Client({
 });
 
 sendMessage.addEventListener('click', () => {
-    if(message.value !== ''){
+    if(message.value.trim() !== ''){
         client.publish({
             destination: '/app/'+boardNo.value,
             body: JSON.stringify({
@@ -75,8 +75,19 @@ function showChat(data){
                             </div>
                         </div>
                     </section>
-                    
-`)
+        `)
+    }else if(data.id !== myId.value){
+        chatArea.insertAdjacentHTML(`beforeend`,`
+                    <section>
+                        <div class="my-chat">
+                            <div class="profile">
+                                <img src="${otherProfile.value}" alt="또또">
+                            </div>
+                            <div class="message">${data.message}</div>
+                            <span>${data.nowDate}</span>
+                        </div>
+                    </section>
+        `)
     }
 }
 

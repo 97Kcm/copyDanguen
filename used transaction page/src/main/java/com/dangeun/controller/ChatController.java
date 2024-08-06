@@ -43,13 +43,13 @@ public class ChatController {
         ChatDTO chatRoom = chatService.selectChatRoom(boardNo);
         List<ChatDTO> chatInfos = chatService.selectAllChatRoom(userDTO);
         System.out.println("chatInfos" + chatInfos);
-//        List<ChatTextDTO> chatList = chatService.getChatList(boardNo);
-//        System.out.println("chatList" + chatList);
-//        if(!chatList.isEmpty()){
-//            model.addAttribute("chatList", chatList);
-//        }
+        List<ChatDTO> chatList = chatService.getChatList(boardNo);
+        System.out.println("chatList" + chatList);
+        if(!chatList.isEmpty()){
+            model.addAttribute("chatList", chatList.get(0).getChatTextDTO());
+        }
         System.out.println("chatRoom : " + chatRoom);
-
+        model.addAttribute("chatUserInfo", chatList.get(0));
         model.addAttribute("chatRoom", chatRoom);
         model.addAttribute("nowBoardNo", boardNo);
         model.addAttribute("chatInfos", chatInfos);
@@ -78,7 +78,7 @@ public class ChatController {
                         message(chatTextDTO.getMessage()).
                         nowDate(nowTimeString).
                         build());
-        List<ChatTextDTO> chatList = chatService.getChatList(boardNo);
+//        List<ChatDTO> chatList = chatService.getChatList(boardNo);
 
 //        messagingTemplate.convertAndSend("/topic/" + boardNo + "/list", chatList);
 

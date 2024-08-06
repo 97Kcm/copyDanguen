@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS `chat_room`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `chat_room` (
-  `no` int NOT NULL AUTO_INCREMENT,
-  `board_no` int NOT NULL,
+  `chat_no` int NOT NULL AUTO_INCREMENT,
+  `chat_room_no` int NOT NULL,
   `my_id` varchar(50) NOT NULL,
   `chat_user_id` varchar(45) NOT NULL,
-  PRIMARY KEY (`no`)
+  PRIMARY KEY (`chat_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-05 16:48:06
+-- Dump completed on 2024-08-06 17:53:53

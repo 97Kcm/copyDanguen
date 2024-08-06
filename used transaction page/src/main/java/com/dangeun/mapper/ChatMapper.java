@@ -13,7 +13,7 @@ public interface ChatMapper {
 
     ChatDTO selectChatRoom(Integer boardNo);
 
-    List<ChatTextDTO> selectChatText(Integer boardNo);
+    List<ChatDTO> selectChatText(Integer boardNo);
 
     void insertInfoByChatRoom(
             ChatDTO chatDTO

@@ -30,7 +30,7 @@ public class ChatService {
         chatMapper.insertChatTextData(chatTextDTO);
     }
 
-    public List<ChatTextDTO> getChatList(Integer boardNo){
+    public List<ChatDTO> getChatList(Integer boardNo){
         return chatMapper.selectChatText(boardNo);
     }
 }
