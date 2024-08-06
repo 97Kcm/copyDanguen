@@ -73,7 +73,7 @@
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </section>
                 <section id="chat-area" class="scroll">
-                    <section th:each="chat : ${chatList}">
+                    <section th:if="${!chatList.isEmpty()}" th:each="chat : ${chatList}">
                         <div th:if="${chat.getId() == #authentication.principal.email}" class="opponent-chat">
                             <span th:text="${chat.getNowDate()}">날짜/시간</span>
                             <div th:text="${chat.getMessage()}" class="message">나는 지금 아무말이나 하고있는데 너는 지금 완전 다른짓을 하고 있구나 내말에 집중해주지 않을래</div>

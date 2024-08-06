@@ -1,11 +1,12 @@
 const message = document.getElementById('message');
 const sendMessage = document.getElementById('send-message');
-const chatInfo = document.getElementById('chat-info');
 const boardNo = document.getElementById('board-no');
 const myNickname = document.getElementById('myNickname');
 const chatArea = document.getElementById('chat-area');
+
 const myId = document.getElementById('my-id');
 const otherId = document.getElementById('otherId');
+
 const myProfile = document.getElementById('my-profile');
 const otherProfile = document.getElementById('other-profile');
 
@@ -47,7 +48,6 @@ sendMessage.addEventListener('click', () => {
             destination: '/app/'+boardNo.value,
             body: JSON.stringify({
                 boardNo: boardNo.value,
-                id: myId.value,
                 nickname: myNickname.value,
                 message: message.value,
                 skipContentLengthHeader: true

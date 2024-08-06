@@ -61,6 +61,7 @@ public class BoardController {
                 result = false;
             }
         }
+        System.out.println(chatDTO);
         if(!chatDTO.getMyId().equals(chatDTO.getChatUserId())){
             if(result){
                 chatService.insertInfoByChatRoom(chatDTO);
@@ -70,7 +71,7 @@ public class BoardController {
                 return "redirect:/chat?boardNo=" + chatDTO.getBoardNo();
             }
         }
-
+        System.out.println("안가짐");
         return "redirect:/board/"+chatDTO.getBoardNo();
     }
 

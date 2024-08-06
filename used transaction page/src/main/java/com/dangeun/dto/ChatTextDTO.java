@@ -12,7 +12,8 @@ import lombok.ToString;
 public class ChatTextDTO {
     private Integer no;
     private Integer boardNo;
-    private String id;
+    private String toId;
+    private String fromId;
     private String nickname;
     private String message;
     private String nowDate;

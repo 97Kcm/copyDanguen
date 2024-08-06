@@ -49,7 +49,7 @@
     <insert id="insertChatTextData">
         INSERT INTO `chat_text`
         VALUES
-        (NULL, #{boardNo}, #{id}, #{nickname}, #{message}, #{nowDate})
+        (NULL, #{boardNo}, #{toId}, #{fromId}, #{nickname}, #{message}, #{nowDate})
     </insert>
 
 

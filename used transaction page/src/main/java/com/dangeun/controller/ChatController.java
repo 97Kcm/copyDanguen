@@ -69,11 +69,14 @@ public class ChatController {
         Date now = new Date();
         String nowTimeString = nowTime.format(now);
 
+        ChatDTO chatDTO = chatService.selectChatRoom(boardNo);
+
 
         chatService.createChatText(
                 chatTextDTO.builder().
                         boardNo(boardNo).
-                        id(chatTextDTO.getId()).
+                        toId(chatDTO.getChatUserId()).
+                        fromId(chatDTO.getMyId()).
                         nickname(chatTextDTO.getNickname()).
                         message(chatTextDTO.getMessage()).
                         nowDate(nowTimeString).
@@ -84,7 +87,8 @@ public class ChatController {
 
         messagingTemplate.convertAndSend("/topic/" + boardNo, chatTextDTO.builder().
                 boardNo(boardNo).
-                id(chatTextDTO.getId()).
+                toId(chatDTO.getChatUserId()).
+                fromId(chatDTO.getMyId()).
                 nickname(chatTextDTO.getNickname()).
                 message(chatTextDTO.getMessage()).
                 nowDate(nowTimeString).
