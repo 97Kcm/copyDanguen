@@ -14,6 +14,10 @@
         SELECT * FROM `user` WHERE email = #{id}
     </select>
 
+    <select id="selectChatRoomUserInfo" resultType="UserDTO" resultMap="getUserProfile">
+        SELECT * FROM `user` WHERE email = #{email}
+    </select>
+
     <insert id="insertUser">
         INSERT INTO `user`
         VALUES

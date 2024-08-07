@@ -4,6 +4,7 @@ import com.dangeun.dto.ChatDTO;
 import com.dangeun.dto.ChatTextDTO;
 import com.dangeun.dto.UserDTO;
 import com.dangeun.service.ChatService;
+import com.dangeun.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,27 +33,32 @@ public class ChatController {
 
     @Autowired
     private ChatService chatService;
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/chat")
     public String get_chat(
-            HttpServletRequest request,
             @RequestParam(required = false, value = "boardNo") Integer boardNo,
             @AuthenticationPrincipal UserDTO userDTO,
             Model model
             ){
+        // 현재 보드번호의 방 정보와 채팅을 하는 두 유저의 정보 조회
         ChatDTO chatRoom = chatService.selectChatRoom(boardNo);
-        List<ChatDTO> chatInfos = chatService.selectAllChatRoom(userDTO);
-        System.out.println("chatInfos" + chatInfos);
-        List<ChatDTO> chatList = chatService.getChatList(boardNo);
-        System.out.println("chatList" + chatList);
-        if(!chatList.isEmpty()){
-            model.addAttribute("chatList", chatList.get(0).getChatTextDTO());
-        }
         System.out.println("chatRoom : " + chatRoom);
-        model.addAttribute("chatUserInfo", chatList.get(0));
         model.addAttribute("chatRoom", chatRoom);
-        model.addAttribute("nowBoardNo", boardNo);
-        model.addAttribute("chatInfos", chatInfos);
+        UserDTO chatRoomBuyUser = userService.selectChatRoomUserInfo(chatRoom.getChatRoomBuyUser());
+        UserDTO chatRoomSellUser = userService.selectChatRoomUserInfo(chatRoom.getChatRoomSellUser());
+        System.out.println(chatRoomSellUser);
+        System.out.println(chatRoomBuyUser);
+        model.addAttribute("chatRoomSellUser", chatRoomSellUser);
+        model.addAttribute("chatRoomBuyUser", chatRoomBuyUser);
+
+        // 현재 로그인된 유저의 정보와 일치하는 아이디가 있다면 전부 가져오기
+        List<ChatDTO> allChatRoomInfo = chatService.selectAllChatRoom(userDTO);
+        System.out.println(allChatRoomInfo);
+        model.addAttribute("allChatRoomInfo", allChatRoomInfo);
+
+
         return "chat";
     }
 
@@ -62,33 +68,28 @@ public class ChatController {
             @DestinationVariable("boardNo") Integer boardNo,
             @Payload ChatTextDTO chatTextDTO
     ){
-        System.out.println(boardNo);
-        System.out.println(chatTextDTO);
+//        System.out.println(boardNo);
+//        System.out.println(chatTextDTO);
 
         SimpleDateFormat nowTime = new SimpleDateFormat("a HH:mm");
         Date now = new Date();
         String nowTimeString = nowTime.format(now);
 
-        ChatDTO chatDTO = chatService.selectChatRoom(boardNo);
-
-
         chatService.createChatText(
                 chatTextDTO.builder().
                         boardNo(boardNo).
-                        toId(chatDTO.getChatUserId()).
-                        fromId(chatDTO.getMyId()).
                         nickname(chatTextDTO.getNickname()).
                         message(chatTextDTO.getMessage()).
                         nowDate(nowTimeString).
                         build());
-//        List<ChatDTO> chatList = chatService.getChatList(boardNo);
 
+        List<ChatDTO> chatList = chatService.getChatList(boardNo);
+        System.out.println("chatList : " + chatList);
 //        messagingTemplate.convertAndSend("/topic/" + boardNo + "/list", chatList);
 
-        messagingTemplate.convertAndSend("/topic/" + boardNo, chatTextDTO.builder().
+        messagingTemplate.convertAndSend("/topic/" + boardNo,
+                chatTextDTO.builder().
                 boardNo(boardNo).
-                toId(chatDTO.getChatUserId()).
-                fromId(chatDTO.getMyId()).
                 nickname(chatTextDTO.getNickname()).
                 message(chatTextDTO.getMessage()).
                 nowDate(nowTimeString).

@@ -33,7 +33,7 @@ const client = new StompJs.Client({
                 // 메시지 body를 JSON으로 파싱
                 const data = JSON.parse(message.body);
                 console.log(data);
-                showChat(data);
+                // showChat(data);
             } catch (error) {
                 console.error('Error parsing message body:', error);
             }

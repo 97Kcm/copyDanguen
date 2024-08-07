@@ -3,34 +3,29 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dangeun.mapper.ChatMapper">
 
-    <resultMap id="getUserProfile" type="ChatDTO" autoMapping="true">
-        <id property="boardNo" column="chat_room_no"/>
-        <association javaType="UserDTO" property="userDTO" autoMapping="true" resultMap="com.dangeun.mapper.UserMapper.getUserProfile">
-            <id property="email" column="email"/>
-        </association>
-    </resultMap>
+<!--    <resultMap id="getUserProfile" type="ChatDTO" autoMapping="true">-->
+<!--        <id property="chatRoomNo" column="chat_room_no"/>-->
+<!--        <collection javaType="list" property="userDTO" autoMapping="true" resultMap="com.dangeun.mapper.UserMapper.getUserProfile">-->
+<!--            <id property="email" column="email"/>-->
+<!--        </collection>-->
+<!--    </resultMap>-->
 
     <resultMap id="getChatTextData" type="ChatDTO" autoMapping="true">
-        <id property="chatNo" column="chat_no"/>
-        <result property="boardNo" column="chat_room_no"/>
-        <collection property="chatTextDTO" ofType="ChatTextDTO" javaType="List" autoMapping="true">
+        <id property="chatRoomNo" column="chat_room_no"/>
+        <collection property="chatTextDTO" ofType="ChatTextDTO" javaType="list" autoMapping="true">
             <id property="no" column="no"/>
         </collection>
     </resultMap>
 
 
-    <select id="selectAllChatRoomInfo" resultType="ChatDTO" resultMap="getUserProfile">
-        SELECT * FROM `chat_room` CR
-            INNER JOIN `user` U
-            ON CR.chat_user_id = U.email
-        WHERE my_id = #{myId} OR chat_user_id = #{myId}
+    <select id="selectAllChatRoomInfo" resultType="ChatDTO">
+        SELECT * FROM `chat_room`
+        WHERE chat_room_sell_user = #{myId} OR chat_room_buy_user = #{myId}
     </select>
 
-    <select id="selectChatRoom" resultType="ChatDTO" resultMap="getUserProfile">
+    <select id="selectChatRoom" resultType="ChatDTO">
         SELECT * FROM `chat_room` CR
-            INNER JOIN `user` U
-            ON U.email = CR.chat_user_id
-        WHERE chat_room_no = #{boardNo}
+        WHERE chat_room_no = #{boardNo};
     </select>
 
     <select id="selectChatText" resultType="ChatDTO" resultMap="getChatTextData">
@@ -43,13 +38,13 @@
     <insert id="insertInfoByChatRoom">
         INSERT INTO `chat_room`
         VALUES
-        (NULL, #{boardNo}, #{myId}, #{chatUserId})
+        (#{chatRoomNo}, #{chatRoomSellUser}, #{chatRoomBuyUser})
     </insert>
 
     <insert id="insertChatTextData">
         INSERT INTO `chat_text`
         VALUES
-        (NULL, #{boardNo}, #{toId}, #{fromId}, #{nickname}, #{message}, #{nowDate})
+        (NULL, #{boardNo}, #{nickname}, #{message}, #{nowDate})
     </insert>
 
 

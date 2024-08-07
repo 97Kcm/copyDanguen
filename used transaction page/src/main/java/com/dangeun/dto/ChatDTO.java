@@ -10,10 +10,9 @@ import java.util.List;
 @Setter
 @ToString
 public class ChatDTO {
-    private Integer chatNo;
-    private Integer boardNo;
-    private String myId;
-    private String chatUserId;
+    private Integer chatRoomNo;
+    private String chatRoomSellUser;
+    private String chatRoomBuyUser;
     private List<ChatTextDTO> chatTextDTO;
-    private UserDTO userDTO;
+    private List<UserDTO> userDTO;
 }

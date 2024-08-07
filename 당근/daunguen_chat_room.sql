@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
 -- Host: localhost    Database: daunguen
 -- ------------------------------------------------------
--- Server version	8.0.37
+-- Server version	8.4.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,12 +23,11 @@ DROP TABLE IF EXISTS `chat_room`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `chat_room` (
-  `chat_no` int NOT NULL AUTO_INCREMENT,
   `chat_room_no` int NOT NULL,
-  `my_id` varchar(50) NOT NULL,
-  `chat_user_id` varchar(45) NOT NULL,
-  PRIMARY KEY (`chat_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `chat_room_sell_user` varchar(50) NOT NULL,
+  `chat_room_buy_user` varchar(50) NOT NULL,
+  PRIMARY KEY (`chat_room_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +36,7 @@ CREATE TABLE `chat_room` (
 
 LOCK TABLES `chat_room` WRITE;
 /*!40000 ALTER TABLE `chat_room` DISABLE KEYS */;
-INSERT INTO `chat_room` VALUES (1,1,'67klgg@gmail.com','67klgg@naver.com');
+INSERT INTO `chat_room` VALUES (4,'67klgg@naver.com','67klgg@gmail.com');
 /*!40000 ALTER TABLE `chat_room` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-06 17:53:53
+-- Dump completed on 2024-08-07 21:46:57

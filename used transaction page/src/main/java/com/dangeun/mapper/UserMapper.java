@@ -9,4 +9,6 @@ public interface UserMapper {
     void insertUser(UserDTO userDTO);
 
     UserDTO SelectUserById(String id);
+
+    UserDTO selectChatRoomUserInfo(String email);
 }

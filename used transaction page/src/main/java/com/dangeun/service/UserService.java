@@ -19,4 +19,8 @@ public class UserService {
         userMapper.insertUser(userDTO);
     }
 
+    public UserDTO selectChatRoomUserInfo(String email){
+        return userMapper.selectChatRoomUserInfo(email);
+    }
+
 }
