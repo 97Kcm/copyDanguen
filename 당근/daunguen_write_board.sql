@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
 -- Host: localhost    Database: daunguen
 -- ------------------------------------------------------
--- Server version	8.0.37
+-- Server version	8.4.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,7 +33,7 @@ CREATE TABLE `write_board` (
   `content` varchar(200) DEFAULT NULL,
   `now_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `write_board` (
 
 LOCK TABLES `write_board` WRITE;
 /*!40000 ALTER TABLE `write_board` DISABLE KEYS */;
-INSERT INTO `write_board` VALUES (1,'67klgg@naver.com','선풍기 팝니다','서울특별시','은평구 은평터널로',5000,'가구/인테리어','23','2024-07-29 19:38:52'),(2,'67klgg@naver.com',' 한여름엔 에어컨 필수!!','대구광역시','동성로',945023,'생활가전','시원한 에어컨 팝니다','2024-07-29 19:49:31'),(3,'67klgg@naver.com','가볍고 튼튼한 자전거 팔아요','강원특별자치도','인제시',360000,'스포츠/레저','가볍고 튼튼한 자전거입니다\r\n네고 불가\r\n택배 시 착불','2024-07-29 20:13:44'),(4,'67klgg@naver.com','사용한지 일주일 된 소니 미러리스 카메라 판매합니다','세종특별자치도','세종대왕 납시오',5000,'전자기기','사진찍으려고 샀다가 두번정도 사용하고 장롱행인 애물단지입니다.\r\n사용감 아예 없고 거의 새제품이랑 다를 게 없습니다.','2024-07-29 21:33:25');
+INSERT INTO `write_board` VALUES (1,'67klgg@naver.com','선풍기 팝니다','서울특별시','은평구 은평터널로',5000,'가구/인테리어','23','2024-07-29 19:38:52'),(2,'67klgg@naver.com',' 한여름엔 에어컨 필수!!','대구광역시','동성로',945023,'생활가전','시원한 에어컨 팝니다','2024-07-29 19:49:31'),(3,'67klgg@naver.com','가볍고 튼튼한 자전거 팔아요','강원특별자치도','인제시',360000,'스포츠/레저','가볍고 튼튼한 자전거입니다\r\n네고 불가\r\n택배 시 착불','2024-07-29 20:13:44'),(4,'67klgg@naver.com','사용한지 일주일 된 소니 미러리스 카메라 판매합니다','세종특별자치도','세종대왕 납시오',5000,'전자기기','사진찍으려고 샀다가 두번정도 사용하고 장롱행인 애물단지입니다.\r\n사용감 아예 없고 거의 새제품이랑 다를 게 없습니다.','2024-07-29 21:33:25'),(5,'67klgg@gmail.com','컴퓨터 팔아요','울산광역시','중구 남외동',300000,'전자기기','산지 1년 된 컴퓨터 본체 팝니다','2024-08-07 19:07:43');
 /*!40000 ALTER TABLE `write_board` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-06 17:53:53
+-- Dump completed on 2024-08-07 21:46:57

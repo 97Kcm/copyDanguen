@@ -24,29 +24,25 @@
         <section id="short-chat-section">
             <section id="nickname-section">
                 <b th:text="${#authentication.principal.getNickname}">닉네임</b>
-                <input type="hidden" id="my-profile" th:value="${#authentication.principal.getProfileImage.getFileUrl}">
-                <input id="myNickname" type="hidden" th:value="${#authentication.principal.getNickname}">
-                <input id="my-id" type="hidden" th:value="${#authentication.principal.getEmail}">
             </section>
             <section>
                 <ul id="short-chat-box" class="scroll">
-                    <li th:each="chatInfo : ${chatInfos}">
-                        <a th:href="@{/chat(boardNo=${chatInfo.boardNo})}">
+                    <li>
+                        <a>
                             <div>
-                                <img th:src="${chatInfo.getUserDTO().getProfileImage().getFileUrl()}" alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
+                                <img th:if="${#authentication.principal.getEmail == chatRoomBuyUser.getEmail()}" th:src="${chatRoomSellUser.getProfileImage().getFileUrl()}" alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
+                                <img th:if="${#authentication.principal.getEmail == chatRoomSellUser.getEmail()}" th:src="${chatRoomBuyUser.getProfileImage().getFileUrl()}" alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
                             </div>
                             <div>
                                 <div>
-                                    <b th:text="${chatInfo.getUserDTO().getNickname()}">닉네임</b>
-                                    <input id="otherId" type="hidden" th:value="${chatInfo.getUserDTO().getEmail()}">
-                                    <input type="hidden" id="other-profile" th:value="${chatInfo.getUserDTO().getProfileImage().getFileUrl()}">
+                                    <b th:if="${#authentication.principal.getEmail == chatRoomBuyUser.getEmail()}" th:text="${chatRoomSellUser.getNickname()}">닉네임</b>
+                                    <b th:if="${#authentication.principal.getEmail == chatRoomSellUser.getEmail()}" th:text="${chatRoomBuyUser.getNickname()}">닉네임</b>
 <!--                                    <span th:text="${chatList.getNowDate()}">시간</span>-->
                                 </div>
 <!--                                <span th:if="${chatList.getMessage().length() > 10}" th:text="${chatList.getMessage().substring(0,10)}">채팅내용 아무거나</span>-->
 <!--                                <span th:if="${chatList.getMessage().length() <= 10}" th:text="${chatList.getMessage()}">채팅내용 아무거나</span>-->
                             </div>
                         </a>
-                        <input id="board-no" type="hidden" th:value="${chatInfo.getBoardNo()}">
                     </li>
 
                 </ul>
@@ -61,32 +57,31 @@
             </section>
         </section>
         <section id="chat-section">
-            <section  th:each="chatRooms : ${chatInfos}"
-                      th:if="${chatRooms.getBoardNo().equals(nowBoardNo)}">
+            <section>
                 <section id="chat-nickname-section">
                     <div>
                         <div>
-                            <img th:src="${chatRooms.getUserDTO().getProfileImage().getFileUrl()}" alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
+                            <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
                         </div>
-                        <span th:text="${chatRooms.getUserDTO().getNickname()}">닉네임</span>
+                        <span>닉네임</span>
                     </div>
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </section>
                 <section id="chat-area" class="scroll">
-                    <section th:each="chat : ${chatList}">
-                        <div th:if="${chat.getId() == #authentication.principal.email}" class="opponent-chat">
-                            <span th:text="${chat.getNowDate()}">날짜/시간</span>
-                            <div th:text="${chat.getMessage()}" class="message">나는 지금 아무말이나 하고있는데 너는 지금 완전 다른짓을 하고 있구나 내말에 집중해주지 않을래</div>
+                    <section>
+                        <div class="opponent-chat">
+                            <span>날짜/시간</span>
+                            <div class="message">나는 지금 아무말이나 하고있는데 너는 지금 완전 다른짓을 하고 있구나 내말에 집중해주지 않을래</div>
                             <div class="profile">
-                                <img th:src="${#authentication.principal.getProfileImage.getFileUrl}" alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
+                                <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
                             </div>
                         </div>
-                        <div th:if="${chat.getId().equals(chatRoom.getChatUserId())}" class="my-chat">
+                        <div class="my-chat">
                             <div class="profile">
-                                <img th:src="${chatRoom.getUserDTO().getProfileImage().getFileUrl()}" alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
+                                <img alt="또또" src="https://d1unjqcospf8gs.cloudfront.net/assets/users/default_profile_80-c649f052a34ebc4eee35048815d8e4f73061bf74552558bb70e07133f25524f9.png">
                             </div>
-                            <div th:text="${chat.getMessage()}" class="message">너도 지금 아무말이나 하고있으면서 나는 왜 아무말이나 하면 안된다는 거니 그건 궤변이야 나에게도 아무말을 할 수 있는 기회를 줘</div>
-                            <span th:text="${chat.getNowDate()}">날짜/시간</span>
+                            <div class="message">너도 지금 아무말이나 하고있으면서 나는 왜 아무말이나 하면 안된다는 거니 그건 궤변이야 나에게도 아무말을 할 수 있는 기회를 줘</div>
+                            <span>날짜/시간</span>
                         </div>
                     </section>
 <!--                    <div class="date-section">-->
@@ -101,6 +96,8 @@
                     <button id="send-message">보내기</button>
                 </div>
             </section>
+            <input type="hidden" id="board-no" th:value="${chatRoom.getChatRoomNo()}">
+            <input type="hidden" id="myNickname" th:value="${#authentication.principal.getNickname}">
         </section>
     </main>
 </body>

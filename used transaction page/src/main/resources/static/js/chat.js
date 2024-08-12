@@ -1,11 +1,12 @@
 const message = document.getElementById('message');
 const sendMessage = document.getElementById('send-message');
-const chatInfo = document.getElementById('chat-info');
 const boardNo = document.getElementById('board-no');
 const myNickname = document.getElementById('myNickname');
 const chatArea = document.getElementById('chat-area');
+
 const myId = document.getElementById('my-id');
 const otherId = document.getElementById('otherId');
+
 const myProfile = document.getElementById('my-profile');
 const otherProfile = document.getElementById('other-profile');
 
@@ -32,7 +33,7 @@ const client = new StompJs.Client({
                 // 메시지 body를 JSON으로 파싱
                 const data = JSON.parse(message.body);
                 console.log(data);
-                showChat(data);
+                // showChat(data);
             } catch (error) {
                 console.error('Error parsing message body:', error);
             }
@@ -47,7 +48,6 @@ sendMessage.addEventListener('click', () => {
             destination: '/app/'+boardNo.value,
             body: JSON.stringify({
                 boardNo: boardNo.value,
-                id: myId.value,
                 nickname: myNickname.value,
                 message: message.value,
                 skipContentLengthHeader: true

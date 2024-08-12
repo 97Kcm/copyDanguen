@@ -54,24 +54,27 @@ public class BoardController {
             @AuthenticationPrincipal UserDTO userDTO,
             ChatDTO chatDTO
     ){
+        // chatDTO = 로그인한 현재 아이디, 보드를 만든 유저 아이디, 현재 보드 번호
+        // 현재 로그인한 유저의 아이디가 있는 board정보 전부 가져오기
         List<ChatDTO> chatAllRoomInfo = chatService.selectAllChatRoom(userDTO);
         boolean result = true;
         for(ChatDTO chat : chatAllRoomInfo){
-            if(chatDTO.getBoardNo().equals(chat.getBoardNo()) || chatDTO.getChatUserId().equals(chat.getChatUserId())){
+            // 한번 채팅한 내역이 있는 유저나 방 목록이면 false 출력
+            if(chatDTO.getChatRoomNo().equals(chat.getChatRoomNo()) || chatDTO.getChatRoomSellUser().equals(chat.getChatRoomSellUser())){
                 result = false;
             }
         }
-        if(!chatDTO.getMyId().equals(chatDTO.getChatUserId())){
+        if(!chatDTO.getChatRoomBuyUser().equals(chatDTO.getChatRoomSellUser())){
             if(result){
                 chatService.insertInfoByChatRoom(chatDTO);
-                return "redirect:/chat?boardNo=" + chatDTO.getBoardNo();
+                return "redirect:/chat?boardNo=" + chatDTO.getChatRoomNo();
             }
             else{
-                return "redirect:/chat?boardNo=" + chatDTO.getBoardNo();
+                return "redirect:/chat";
             }
         }
-
-        return "redirect:/board/"+chatDTO.getBoardNo();
+        System.out.println("안가짐");
+        return "redirect:/board/"+chatDTO.getChatRoomNo();
     }
 
 
