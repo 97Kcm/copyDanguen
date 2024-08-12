@@ -4,6 +4,7 @@ import com.dangeun.dto.ChatDTO;
 import com.dangeun.dto.ChatTextDTO;
 import com.dangeun.dto.UserDTO;
 import com.dangeun.service.ChatService;
+import com.dangeun.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -43,23 +45,46 @@ public class ChatController {
             Model model
             ){
         // 현재 보드번호의 방 정보와 채팅을 하는 두 유저의 정보 조회
-        ChatDTO chatRoom = chatService.selectChatRoom(boardNo);
-        System.out.println("chatRoom : " + chatRoom);
-        model.addAttribute("chatRoom", chatRoom);
-        UserDTO chatRoomBuyUser = userService.selectChatRoomUserInfo(chatRoom.getChatRoomBuyUser());
-        UserDTO chatRoomSellUser = userService.selectChatRoomUserInfo(chatRoom.getChatRoomSellUser());
-        System.out.println(chatRoomSellUser);
-        System.out.println(chatRoomBuyUser);
-        model.addAttribute("chatRoomSellUser", chatRoomSellUser);
-        model.addAttribute("chatRoomBuyUser", chatRoomBuyUser);
+        if(boardNo != null){
+            System.out.println("boardNo : " + boardNo);
+            ChatDTO chatRoom = chatService.selectChatRoom(boardNo);
+            System.out.println("chatRoom : " + chatRoom);
+            model.addAttribute("chatRoom", chatRoom);
+            UserDTO chatRoomBuyUser = userService.selectChatRoomUserInfo(chatRoom.getChatRoomBuyUser());
+            UserDTO chatRoomSellUser = userService.selectChatRoomUserInfo(chatRoom.getChatRoomSellUser());
+            System.out.println(chatRoomSellUser);
+            System.out.println(chatRoomBuyUser);
+            model.addAttribute("chatRoomSellUser", chatRoomSellUser);
+            model.addAttribute("chatRoomBuyUser", chatRoomBuyUser);
+        }else{
+            System.out.println("boardNo : " + boardNo);
+            model.addAttribute("chatRoom", null);
+        }
+
+        List<ChatDTO> chatList = chatService.getChatList(boardNo);
+        model.addAttribute("chatList", chatList);
+        System.out.println("chatList : " + chatList);
+
+
 
         // 현재 로그인된 유저의 정보와 일치하는 아이디가 있다면 전부 가져오기
         List<ChatDTO> allChatRoomInfo = chatService.selectAllChatRoom(userDTO);
         System.out.println(allChatRoomInfo);
         model.addAttribute("allChatRoomInfo", allChatRoomInfo);
 
+        List<UserDTO> allChatRoomBuyUser = new ArrayList<>();
+        List<UserDTO> allChatRoomSellUser = new ArrayList<>();
+        for(ChatDTO chatRoomUserInfo : allChatRoomInfo){
+            allChatRoomBuyUser.add(userService.selectChatRoomUserInfo(chatRoomUserInfo.getChatRoomBuyUser()));
+            allChatRoomSellUser.add(userService.selectChatRoomUserInfo(chatRoomUserInfo.getChatRoomSellUser()));
+        }
+        System.out.println(allChatRoomBuyUser);
+        System.out.println(allChatRoomSellUser);
+        model.addAttribute("allChatRoomBuyUser", allChatRoomBuyUser);
+        model.addAttribute("allChatRoomSellUser", allChatRoomSellUser);
 
-        return "chat";
+
+        return "/chat";
     }
 
 //    @SendTo("/topic/{boardNo}")

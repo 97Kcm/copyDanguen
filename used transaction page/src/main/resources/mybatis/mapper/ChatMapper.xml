@@ -11,7 +11,7 @@
 <!--    </resultMap>-->
 
     <resultMap id="getChatTextData" type="ChatDTO" autoMapping="true">
-        <id property="chatRoomNo" column="chat_room_no"/>
+        <id property="chatNo" column="chat_no"/>
         <collection property="chatTextDTO" ofType="ChatTextDTO" javaType="list" autoMapping="true">
             <id property="no" column="no"/>
         </collection>

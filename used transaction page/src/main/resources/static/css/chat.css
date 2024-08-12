@@ -5,7 +5,7 @@ body{
 main{
     width: var(--main-width);
     background-color: white;
-    margin: 56.2px auto;
+    margin: 60px auto 0 auto;
     height: calc(100vh - 56.2px);
     display: flex;
 }
@@ -142,6 +142,8 @@ a{
 
 #chat-section{
     width: 730px;
+}
+#chat-section > section{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -151,7 +153,8 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12.5px;
+    height: 60.5px;
+    padding: 22.5px 15px;
     font-size: var(--font-size-midium);
     border-bottom: 1px solid rgba(170,170,170,0.3);
 
@@ -251,7 +254,9 @@ a{
 }
 
 #chat-input-section{
-    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    width: 720px;
     padding: 10px;
 }
 #chat-input-section div{

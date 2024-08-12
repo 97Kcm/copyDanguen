@@ -10,6 +10,7 @@ import java.util.List;
 @Setter
 @ToString
 public class ChatDTO {
+    private Integer chatNo;
     private Integer chatRoomNo;
     private String chatRoomSellUser;
     private String chatRoomBuyUser;
