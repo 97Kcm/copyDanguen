@@ -50,6 +50,7 @@ public class ChatController {
         }
         System.out.println("chatRoom : " + chatRoom);
         model.addAttribute("chatUserInfo", chatList.get(0));
+
         model.addAttribute("chatRoom", chatRoom);
         model.addAttribute("nowBoardNo", boardNo);
         model.addAttribute("chatInfos", chatInfos);
