@@ -16,29 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `chat_room`
+-- Table structure for table `custom_user`
 --
 
-DROP TABLE IF EXISTS `chat_room`;
+DROP TABLE IF EXISTS `custom_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `chat_room` (
-  `chat_no` int NOT NULL AUTO_INCREMENT,
-  `chat_room_no` int NOT NULL,
-  `chat_room_sell_user` varchar(50) NOT NULL,
-  `chat_room_buy_user` varchar(50) NOT NULL,
-  PRIMARY KEY (`chat_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `custom_user` (
+  `id` varchar(100) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `nickname` varchar(45) DEFAULT NULL,
+  `profile_image_url` longtext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `chat_room`
+-- Dumping data for table `custom_user`
 --
 
-LOCK TABLES `chat_room` WRITE;
-/*!40000 ALTER TABLE `chat_room` DISABLE KEYS */;
-INSERT INTO `chat_room` VALUES (1,4,'67klgg@naver.com','67klgg@gmail.com');
-/*!40000 ALTER TABLE `chat_room` ENABLE KEYS */;
+LOCK TABLES `custom_user` WRITE;
+/*!40000 ALTER TABLE `custom_user` DISABLE KEYS */;
+INSERT INTO `custom_user` VALUES ('m-IhU3BNEfSgz0-TmNsdDUmH1J4_06Z07QNga7O3txk','김창민',NULL,NULL,NULL);
+/*!40000 ALTER TABLE `custom_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

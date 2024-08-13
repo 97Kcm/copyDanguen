@@ -1,5 +1,6 @@
 package com.dangeun.config;
 
+import com.dangeun.handler.CustomOAuth2SuccessHandler;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,12 +10,21 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.client.RestOperations;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+
+        http.oauth2Login(config -> {
+            config.loginPage("/user/login")
+                    .successHandler(new CustomOAuth2SuccessHandler())
+                    .permitAll();
+//                    .defaultSuccessUrl("/main");
+        });
 
         http.formLogin(config -> {
             config.loginPage("/user/login")
@@ -57,6 +67,11 @@ public class SecurityConfig {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer(){
         return web -> web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
+    }
+
+    @Bean
+    public RestOperations restOperations(){
+        return new RestTemplate();
     }
 
 

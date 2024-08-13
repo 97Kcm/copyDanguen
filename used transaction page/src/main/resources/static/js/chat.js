@@ -5,10 +5,6 @@ const myNickname = document.getElementById('myNickname');
 const chatArea = document.getElementById('chat-area');
 
 const myId = document.getElementById('my-id');
-const otherId = document.getElementById('otherId');
-
-const myProfile = document.getElementById('my-profile');
-const otherProfile = document.getElementById('other-profile');
 
 /*************************************************/
 
@@ -33,7 +29,7 @@ const client = new StompJs.Client({
                 // 메시지 body를 JSON으로 파싱
                 const data = JSON.parse(message.body);
                 console.log(data);
-                // showChat(data);
+                showChat(data);
             } catch (error) {
                 console.error('Error parsing message body:', error);
             }
@@ -64,25 +60,21 @@ sendMessage.addEventListener('click', () => {
 client.activate();
 
 function showChat(data){
-    if(data.id === myId.value){
+    if(data.nickname === myId.value){
+        console.log('실행');
         chatArea.insertAdjacentHTML('beforeend',`
                     <section>
                         <div class="opponent-chat">
                             <span>${data.nowDate}</span>
                             <div class="message">${data.message}</div>
-                            <div class="profile">
-                                <img src="${myProfile.value}" alt="또또">
-                            </div>
                         </div>
                     </section>
         `)
-    }else if(data.id !== myId.value){
+    }else if(data.nickname !== myId.value){
+        console.log('다시 실행');
         chatArea.insertAdjacentHTML(`beforeend`,`
                     <section>
                         <div class="my-chat">
-                            <div class="profile">
-                                <img src="${otherProfile.value}" alt="또또">
-                            </div>
                             <div class="message">${data.message}</div>
                             <span>${data.nowDate}</span>
                         </div>

@@ -2,9 +2,13 @@ package com.dangeun.dto;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -12,23 +16,33 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO implements UserDetails {
+public class UserDTO implements UserDetails, OAuth2User {
     private String email;
-    private String ci;
     private String password;
     private String name;
     private String nickname;
     private String address;
     private FileDTO profileImage;
+    private Map<String, Object> attributes;
+
+    @Override
+    public Map<String, Object> getAttributes() {
+        return Map.of();
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return List.of(new SimpleGrantedAuthority("READONLY"));
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return this.email;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
     }
 
     @Override

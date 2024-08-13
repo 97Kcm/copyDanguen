@@ -61,9 +61,16 @@ public class ChatController {
             model.addAttribute("chatRoom", null);
         }
 
-        List<ChatDTO> chatList = chatService.getChatList(boardNo);
-        model.addAttribute("chatList", chatList);
-        System.out.println("chatList : " + chatList);
+        ChatDTO chatList = chatService.getChatList(boardNo);
+
+
+        if(chatList != null){
+            List<ChatTextDTO> chatText = chatList.getChatTextDTO();
+            System.out.println("chatText : " + chatText);
+            System.out.println("chatList : " + chatList);
+            model.addAttribute("chatList", chatList);
+            model.addAttribute("chatText", chatText);
+        }
 
 
 
@@ -109,10 +116,6 @@ public class ChatController {
                         nowDate(nowTimeString).
                         build());
 //        List<ChatDTO> chatList = chatService.getChatList(boardNo);
-
-        List<ChatDTO> chatList = chatService.getChatList(boardNo);
-        System.out.println("chatList : " + chatList);
-//        messagingTemplate.convertAndSend("/topic/" + boardNo + "/list", chatList);
 
         messagingTemplate.convertAndSend("/topic/" + boardNo,
                 chatTextDTO.builder().

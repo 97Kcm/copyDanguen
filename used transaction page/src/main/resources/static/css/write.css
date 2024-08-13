@@ -127,13 +127,16 @@ input{
     border: 1px solid rgba(170,170,170,0.8);
     cursor: pointer;
 }
-#button-section button:first-child{
-    margin-right: 15px;
+#button-section a{
+    padding: 6px 10px;
+    border-radius: 7px;
+    border: 1px solid rgba(170,170,170,0.8);
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: var(--font-size-midium);
 }
-
-#button-section button:hover{
-    background-color: rgba(170,170,170,0.8);
-    opacity: 0.8;
+#button-section a:hover{
+    text-decoration: none;
 }
 
 /************************************************/

@@ -18,9 +18,26 @@
         SELECT * FROM `user` WHERE email = #{email}
     </select>
 
+   <select id="selectUserByName" resultType="UserDTO" resultMap="getUserProfile">
+       SELECT * FROM `user`
+       WHERE name = #{name}
+   </select>
+
+    <select id="selectCustomUserById" resultType="CustomUserDTO">
+        SELECT * FROM `custom_user` WHERE id = #{id}
+    </select>
+
     <insert id="insertUser">
         INSERT INTO `user`
         VALUES
         (#{email}, #{password}, #{name}, #{nickname}, #{address}, #{profileImage.data})
     </insert>
+
+    <insert id="insertSocialUser">
+        INSERT INTO `custom_user`
+        VALUES
+        (#{id}, #{name}, #{email}, #{nickname}, #{profileImageUrl})
+    </insert>
+
+
 </mapper>
