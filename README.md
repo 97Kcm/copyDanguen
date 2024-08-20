@@ -18,7 +18,7 @@
 <img src="https://skillicons.dev/icons?i=html,css,javascript,java,spring,mysql,theme=light">
 <br>
 
-<h1>주요기능</h1>
+<h1>주요기능</h1><br>
     <h3>요약</h3>
     <table>
         <thead>
@@ -41,7 +41,7 @@
                 </td>
             </tr>
         </tbody>
-    </table>
+    </table><br>
 <h2>[공통 기능]</h2>
 <h3>회원가입, 로그인</h3>
 <ul>
@@ -50,5 +50,17 @@
     <li>회원가입 시 사용한 아이디와 비밀번호를 통해 로그인 할 수 있다.</li>
     <li>외부 링크로 로그인 시, 회원가입한 개인정보와 일치 시 로그인 할 수 있다.</li>
 </ul>
+<br>
 <img src="https://private-user-images.githubusercontent.com/148042427/359528073-9d9c51b5-6a1e-444d-81f9-7c784dcabeee.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjQxNjY5ODMsIm5iZiI6MTcyNDE2NjY4MywicGF0aCI6Ii8xNDgwNDI0MjcvMzU5NTI4MDczLTlkOWM1MWI1LTZhMWUtNDQ0ZC04MWY5LTdjNzg0ZGNhYmVlZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwODIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDgyMFQxNTExMjNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04OGY2OGQ1ZThmZjYxY2ViYjlkNzk1YWRiZDllMTM4NzI0ZjM4OGQwYmI4NTU3YjlhZTM1M2U1Y2Y3MWVlM2VjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.kcOdv52k8YeDBFkGJdOfJ93sEXzA-PvTPWOy6X__OIc" width="600px" height="600px" style="display: inline"><br>
 <img src="https://private-user-images.githubusercontent.com/148042427/359528093-9937f234-df9d-4ae6-b73d-ff93d3762dc2.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjQxNjY5ODMsIm5iZiI6MTcyNDE2NjY4MywicGF0aCI6Ii8xNDgwNDI0MjcvMzU5NTI4MDkzLTk5MzdmMjM0LWRmOWQtNGFlNi1iNzNkLWZmOTNkMzc2MmRjMi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwODIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDgyMFQxNTExMjNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lZjI2NjJjOGMzMTE0MDYxMTk5ZTYzZjdmNmUyMGI3ZDhlN2YwNDRkYjcwMDI3MGFiYzdhYzM4MzEwNGNjZDY4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.eOnQHkaR0ZKJ0IIvQZsNutdFIih_PjmFixt-fYV-Hyo" width="600px" height="600px" style="display: inline">
+
+<h3>중고 거래 물품 게시글 확인 및 원하는 물품 게시글 검색 가능</h3>
+<ul>
+    <li>사용자는 메인 페이지에서 작성되어있는 판매자들의 게시글들을 확인할 수 있다.</li>
+    <li>사용자는 메인 페이지에서 카테고리 및 지역으로 게시글들을 분류시킬 수 있다.</li>
+    <li>사용자는 메인 페이지에서 검색을 통해 원하는 물품을 검색할 수 있다.</li>
+</ul>
+<br>
+<img src="https://private-user-images.githubusercontent.com/148042427/359528077-7d1ce7ef-bcf2-4835-8cc7-d6e5357ea40b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjQxNzA2OTEsIm5iZiI6MTcyNDE3MDM5MSwicGF0aCI6Ii8xNDgwNDI0MjcvMzU5NTI4MDc3LTdkMWNlN2VmLWJjZjItNDgzNS04Y2M3LWQ2ZTUzNTdlYTQwYi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwODIwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDgyMFQxNjEzMTFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT05NTUwNzM0Y2VkMjk0YzlmNmE3MDJmMWQ3MzU4MzAzMjU0ZmEwYTczMmI5NjdkODY4MGU1NTFlNGExY2Y3Y2Q1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.nEKzGPshPTD2egc3hrPdGfk28_JiDWcIeAt-qC5FNhY" width="600px" height="600px" style=display: inline"><br>
+
+
